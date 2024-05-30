@@ -1,0 +1,139 @@
+body {
+  background-color: rgb(80, 80, 80);
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid black;
+}
+#container2 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  /* border: 1px solid black; */
+
+}
+
+.input-container {
+  --c-text: rgb(50, 50, 80);
+  --c-bg: rgb(252, 252, 252);
+  --c-outline: rgb(55, 45, 190);
+  display: grid;
+  gap: 1ch;
+  position: relative;
+  max-width: 190px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+
+.input-field {
+  padding: 0.5em 0.75em;
+  border-radius: 0.2em;
+  border: 1px solid var(--c-border, currentColor);
+  color: var(--c-text);
+  font-size: 1rem;
+  letter-spacing: 0.1ch;
+  width: 100%;
+}
+
+.input-field:not(:placeholder-shown) + .input-label {
+  transform: translateY(-220%);
+  opacity: 1;
+}
+
+.input-field:invalid {
+  --c-border: rgb(230, 85, 60);
+  --c-text: rgb(230, 85, 60);
+  --c-outline: rgb(230, 85, 60);
+}
+
+.input-field:is(:disabled, :read-only) {
+  --c-border: rgb(150, 150, 150);
+  --c-text: rgb(170, 170, 170);
+}
+
+.input-field:is(:focus, :focus-visible) {
+  outline: 2px solid var(--c-outline);
+  outline-offset: 2px;
+}
+
+.input-label {
+  --timing: 200ms ease-in;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transition: transform var(--timing), opacity var(--timing);
+  transform: translateY(-50%);
+  opacity: 0;
+  color: var(--c-text);
+  font-weight: 500;
+}
+
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.4em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
